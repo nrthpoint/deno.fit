@@ -11,6 +11,15 @@ export default [
       parser: typescriptParser,
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+      globals: {
+        HTMLElement: 'readonly',
+        HTMLImageElement: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': typescript,
