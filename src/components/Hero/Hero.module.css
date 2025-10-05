@@ -16,10 +16,11 @@
 }
 
 .hero h1 {
-  font-family: "Orelega One", cursive;
+  font-family: 'Orelega One', cursive;
   font-size: clamp(4rem, 6vw, 4rem);
 
   margin: 0;
+  opacity: 0;
 
   animation: fadeInScale 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

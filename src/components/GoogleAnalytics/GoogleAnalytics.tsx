@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 interface GoogleAnalyticsProps {
   trackingId: string;
@@ -8,7 +8,7 @@ const GoogleAnalytics: React.FC<GoogleAnalyticsProps> = ({ trackingId }) => {
   useEffect(() => {
     if (!trackingId) return;
 
-    const script = document.createElement("script");
+    const script = document.createElement('script');
 
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
@@ -17,12 +17,13 @@ const GoogleAnalytics: React.FC<GoogleAnalyticsProps> = ({ trackingId }) => {
 
     window.dataLayer = window.dataLayer || [];
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function gtag(...args: any[]) {
       window.dataLayer.push(args);
     }
 
-    gtag("js", new Date());
-    gtag("config", trackingId);
+    gtag('js', new Date());
+    gtag('config', trackingId);
 
     return () => {
       document.head.removeChild(script);

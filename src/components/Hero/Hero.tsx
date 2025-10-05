@@ -3,7 +3,9 @@ import styles from './Hero.module.css';
 
 const Hero: React.FC = () => {
   const scrollToFirstSection = () => {
-    document.querySelector('.section.image-left')?.scrollIntoView({ behavior: 'smooth' });
+    document
+      .querySelector('.section.image-left')
+      ?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (

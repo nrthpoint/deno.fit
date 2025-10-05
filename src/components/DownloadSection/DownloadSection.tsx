@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./DownloadSection.module.css";
+import React from 'react';
+import styles from './DownloadSection.module.css';
 
 const DownloadSection: React.FC = () => {
   return (

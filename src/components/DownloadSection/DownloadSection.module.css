@@ -9,7 +9,7 @@
 }
 
 .downloadSection h2 {
-  font-family: "Orelega One", cursive;
+  font-family: 'Orelega One', cursive;
   font-size: clamp(2.5rem, 3vw, 4rem);
 
   animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -57,7 +57,7 @@
   padding: 1rem 2rem;
   border-radius: 15px;
   text-decoration: none;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 1.125rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

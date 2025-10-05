@@ -2,9 +2,15 @@ import js from '@eslint/js';
 import typescript from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import astro from 'eslint-plugin-astro';
+import globals from 'globals';
 
 export default [
   js.configs.recommended,
+
+  {
+    ignores: ['**/*.d.ts'],
+  },
+
   {
     files: ['**/*.{js,ts,tsx}'],
     languageOptions: {
@@ -15,10 +21,7 @@ export default [
         project: './tsconfig.json',
       },
       globals: {
-        HTMLElement: 'readonly',
-        HTMLImageElement: 'readonly',
-        window: 'readonly',
-        document: 'readonly',
+        ...globals.browser,
       },
     },
     plugins: {
@@ -33,7 +36,9 @@ export default [
       'no-var': 'error',
     },
   },
+
   ...astro.configs.recommended,
+
   {
     files: ['**/*.astro'],
     languageOptions: {

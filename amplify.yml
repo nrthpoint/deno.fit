@@ -7,10 +7,10 @@ frontend:
         - pnpm install --frozen-lockfile
     build:
       commands:
-        - "pnpm build"
+        - 'pnpm build'
   artifacts:
     baseDirectory: /dist
     files:
-      - "**/*"
+      - '**/*'
   cache:
     paths: []
