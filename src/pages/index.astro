@@ -458,39 +458,39 @@
           >i</i
         >OS
       </div>
-      <!--       <a href="https://apps.apple.com/app/deno" class="app-store-button">
-        <span class="app-store-icon">📱</span>
-        Download on the App Store
-      </a> -->
     </section>
 
     <script>
-      // Simple scroll-based animation
-      const observerOptions = {
-        root: null,
-        rootMargin: "-20% 0px -20% 0px",
-        threshold: 0,
-      };
+      // Scroll-based scale animation
+      function updateImageScales() {
+        const sections = document.querySelectorAll(
+          ".section:not(.hero):not(.download-section)"
+        );
 
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const section = entry.target;
+        sections.forEach((section) => {
           const img = section.querySelector(".image-container img");
+          if (!img) return;
 
-          if (entry.isIntersecting && img) {
-            img.style.transform = "scale(1.05)";
-          } else if (img) {
-            img.style.transform = "scale(1)";
-          }
+          const rect = section.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          // Calculate visibility percentage (0 to 1)
+          const visibleTop = Math.max(0, -rect.top);
+          const visibleBottom = Math.min(rect.height, windowHeight - rect.top);
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+          const visibilityRatio = visibleHeight / windowHeight;
+
+          // Map visibility ratio to scale (1 to 1.05)
+          const scale = 1 + visibilityRatio * 0.05;
+          (img as HTMLImageElement).style.transform =
+            `scale(${Math.min(1.05, Math.max(1, scale))})`;
         });
-      }, observerOptions);
+      }
 
-      const sections = document.querySelectorAll(
-        ".section:not(.hero):not(.download-section)"
-      );
-      sections.forEach((section) => {
-        sectionObserver.observe(section);
-      });
+      // Update on scroll
+      window.addEventListener("scroll", updateImageScales);
+      // Initial update
+      updateImageScales();
     </script>
   </body>
 </html>
